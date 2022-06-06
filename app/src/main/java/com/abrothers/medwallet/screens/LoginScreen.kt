@@ -22,12 +22,15 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.abrothers.medwallet.R
+import com.abrothers.medwallet.Screen
 import com.abrothers.medwallet.ui.theme.MedWalletTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
 
     var username by remember {
         mutableStateOf("")
@@ -130,7 +133,9 @@ fun LoginScreen() {
                             Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
-                            TextButton(onClick = { /*TODO*/ }) {
+                            TextButton(onClick = {
+                                navController.navigate(Screen.CreateAccount.route)
+                            }) {
                                 Text(text = "Create account")
                             }
 
@@ -152,6 +157,6 @@ fun LoginScreen() {
 @Composable
 fun HomeScreenPreview() {
     MedWalletTheme {
-        LoginScreen()
+        LoginScreen(navController = rememberNavController())
     }
 }
