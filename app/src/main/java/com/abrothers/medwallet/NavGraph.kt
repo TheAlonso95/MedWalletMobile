@@ -16,7 +16,6 @@ fun NavGraphSetup(navController: NavHostController) {
         composable( route = Screen.Login.route) {
             LoginScreen(navController = navController)
         }
-
         composable(route = Screen.CreateAccount.route) {
             CreateAccountScreen(navController = navController)
         }
