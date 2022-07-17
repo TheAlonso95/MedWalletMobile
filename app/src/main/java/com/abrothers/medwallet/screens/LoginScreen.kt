@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -54,7 +55,7 @@ fun LoginScreen(navController: NavController) {
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic__793766328_main),
-                contentDescription = "App Logo",
+                contentDescription = stringResource(R.string.app_logo),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .aspectRatio(1.5f)
@@ -75,7 +76,7 @@ fun LoginScreen(navController: NavController) {
                     verticalArrangement = Arrangement.Center
                 )
                 {
-                    Text(text = "Med Wallet", fontWeight = FontWeight.Bold, fontSize = 32.sp)
+                    Text(text = stringResource(R.string.app_name), fontWeight = FontWeight.Bold, fontSize = 32.sp)
 
                     Column(
                         Modifier.fillMaxSize(),
@@ -86,13 +87,13 @@ fun LoginScreen(navController: NavController) {
                             modifier = Modifier.fillMaxWidth(),
                             value = username,
                             onValueChange = { username = it },
-                            label = { Text(text = "Username") },
+                            label = { Text(text = stringResource(R.string.email)) },
                             trailingIcon = {
                                 IconButton(onClick = { username = "" }) {
                                     if (username.isNotBlank()) {
                                         Icon(
                                             imageVector = Icons.Filled.Clear,
-                                            contentDescription = "Clear username"
+                                            contentDescription = stringResource(R.string.clear_username)
                                         )
                                     }
                                 }
@@ -109,13 +110,13 @@ fun LoginScreen(navController: NavController) {
                                 keyboardType = KeyboardType.Password,
                                 imeAction = ImeAction.Done
                             ),
-                            label = { Text(text = "Password") },
+                            label = { Text(text = stringResource(R.string.password)) },
                             visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                             trailingIcon = {
                                 IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
                                     Icon(
                                         imageVector = if (isPasswordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff,
-                                        contentDescription = "Password toggle"
+                                        contentDescription = stringResource(R.string.password_toggle)
                                     )
                                 }
                             }
@@ -124,7 +125,7 @@ fun LoginScreen(navController: NavController) {
                         Spacer(modifier = Modifier.height(16.dp))
 
                         Button(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth()) {
-                            Text(text = "LOGIN")
+                            Text(text = stringResource(R.string.login).uppercase())
                         }
 
                         Spacer(modifier = Modifier.height(16.dp))
@@ -136,11 +137,11 @@ fun LoginScreen(navController: NavController) {
                             TextButton(onClick = {
                                 navController.navigate(Screen.CreateAccount.route)
                             }) {
-                                Text(text = "Create account")
+                                Text(text = stringResource(R.string.create_account))
                             }
 
                             TextButton(onClick = { /*TODO*/ }) {
-                                Text(text = "Recover password")
+                                Text(text = stringResource(R.string.recover_password))
                             }
                         }
                     }
