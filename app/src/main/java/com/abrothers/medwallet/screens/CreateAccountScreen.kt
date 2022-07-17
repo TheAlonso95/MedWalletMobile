@@ -114,8 +114,6 @@ fun CreateAccountScreen(navController: NavController) {
             )
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
         Button(onClick = { }, enabled = isFormValid) {
             Text(text = stringResource(R.string.create_account).uppercase())
         }
