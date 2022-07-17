@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">MedWallet</string>
+    <string name="app_name" translatable="false">Med Wallet</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="password_toggle">Password toggle</string>
+    <string name="password">Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="login">Login</string>
+    <string name="recover_password">Recover password</string>
+    <string name="clear_username">Clear username or email</string>
+    <string name="app_logo">App Logo</string>
 </resources>

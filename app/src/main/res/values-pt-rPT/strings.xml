@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="first_name">Primeiro Nome</string>
+<string name="last_name">Ultímo nome</string>
+<string name="email">Email</string>
+<string name="password_toggle">Alternar visibilidade da senha</string>
+<string name="password">Senha</string>
+<string name="create_account">Criar Conta</string>
+<string name="login">Entrar</string>
+<string name="recover_password">Recuperar senha</string>
+<string name="clear_username">Limpar nome de utilizador ou email</string>
+<string name="app_logo">Logotipo da Aplicação</string>
+</resources>
