@@ -10,4 +10,6 @@
 <string name="recover_password">Recuperar senha</string>
 <string name="clear_username">Limpar nome de utilizador ou email</string>
 <string name="app_logo">Logotipo da Aplicação</string>
+    <string name="invalid_form">Form is invalid</string>
+    <string name="password_size_hint">No Minímo 8 catacteres!</string>
 </resources>

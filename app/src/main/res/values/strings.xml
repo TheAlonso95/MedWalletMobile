@@ -10,4 +10,6 @@
     <string name="recover_password">Recover password</string>
     <string name="clear_username">Clear username or email</string>
     <string name="app_logo">App Logo</string>
+    <string name="invalid_form">Form is invalid</string>
+    <string name="password_size_hint">Minimum 8 characters long!</string>
 </resources>

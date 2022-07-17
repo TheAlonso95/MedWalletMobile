@@ -8,6 +8,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -21,6 +22,8 @@ import com.abrothers.medwallet.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CreateAccountScreen(navController: NavController) {
+
+    val context = LocalContext.current
 
     var email by remember {
         mutableStateOf("")
@@ -45,72 +48,75 @@ fun CreateAccountScreen(navController: NavController) {
     val isFormValid by derivedStateOf {
         firstName.isNotBlank() &&
                 lastName.isNotBlank() &&
-                email.isNotBlank()
-                    .and(android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) &&
-                password.isNotBlank().and(password.length >= 8)
+                email.isNotBlank() &&
+                android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() &&
+                password.isNotBlank() &&
+                password.length >= 8
     }
-
-    Text(
-        text = stringResource(R.string.create_account),
-        modifier = Modifier.padding( vertical = 18.dp).fillMaxWidth(),
-        fontSize = MaterialTheme.typography.titleLarge.fontSize,
-        fontWeight = FontWeight.Bold,
-        color = MaterialTheme.colorScheme.primary
-    )
 
     Column(
         Modifier
             .fillMaxSize()
-            .padding(12.dp),
+            .padding(18.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.SpaceAround
     ) {
+        Text(
+            text = stringResource(R.string.create_account),
+            modifier = Modifier
+                .padding(12.dp)
+                .fillMaxWidth(),
+            fontSize = MaterialTheme.typography.titleLarge.fontSize,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary
+        )
 
+        TextField(
+            value = firstName,
+            onValueChange = { firstName = it },
+            modifier = Modifier.fillMaxWidth(),
+            label = { Text(text = stringResource(R.string.first_name)) })
 
-        Row(
-            Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            TextField(
-                value = firstName,
-                onValueChange = { firstName = it },
-                label = { Text(text = stringResource(R.string.first_name)) })
-
-            TextField(
-                value = lastName,
-                onValueChange = { lastName = it },
-                label = { Text(text = stringResource(R.string.last_name)) })
-        }
-
-        Spacer(modifier = Modifier.height(8.dp))
+        TextField(
+            value = lastName,
+            onValueChange = { lastName = it },
+            modifier = Modifier.fillMaxWidth(),
+            label = { Text(text = stringResource(R.string.last_name)) })
 
         TextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text(text = stringResource(R.string.email)) },
-            isError = !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
+            modifier = Modifier.fillMaxWidth(),
+            label = { Text(text = stringResource(R.string.email)) }
         )
 
-        Spacer(modifier = Modifier.height(8.dp))
-
-        TextField(
-            value = password,
-            onValueChange = { password = it },
-            visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-            trailingIcon = {
-                IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
-                    Icon(
-                        imageVector = if (isPasswordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff,
-                        contentDescription = stringResource(R.string.password_toggle)
-                    )
-                }
-            },
-            label = { Text(text = stringResource(R.string.password)) }, isError = password.length < 8
-        )
+        Column() {
+            TextField(
+                value = password,
+                onValueChange = { password = it },
+                modifier = Modifier.fillMaxWidth(),
+                visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                trailingIcon = {
+                    IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
+                        Icon(
+                            imageVector = if (isPasswordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff,
+                            contentDescription = stringResource(R.string.password_toggle)
+                        )
+                    }
+                },
+                label = { Text(text = stringResource(R.string.password)) }
+            )
+            Text(
+                text = stringResource(R.string.password_size_hint),
+                fontStyle = MaterialTheme.typography.labelSmall.fontStyle,
+                fontSize = MaterialTheme.typography.labelSmall.fontSize,
+                fontWeight = FontWeight.Thin
+            )
+        }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Button(onClick = { /*TODO*/ }, enabled = isFormValid) {
+        Button(onClick = { }, enabled = isFormValid) {
             Text(text = stringResource(R.string.create_account).uppercase())
         }
     }
