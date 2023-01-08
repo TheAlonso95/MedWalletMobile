@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.abrothers.medwallet.screens.CreateAccountScreen
+import com.abrothers.medwallet.screens.HomeScreen
 import com.abrothers.medwallet.screens.LoginScreen
 
 @Composable
@@ -18,6 +19,9 @@ fun NavGraphSetup(navController: NavHostController) {
         }
         composable(route = Screen.CreateAccount.route) {
             CreateAccountScreen(navController = navController)
+        }
+        composable(route = Screen.Home.route) {
+            HomeScreen(navController = navController)
         }
     }
 }
