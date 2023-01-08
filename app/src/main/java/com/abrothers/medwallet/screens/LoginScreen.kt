@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -28,7 +27,6 @@ import androidx.navigation.compose.rememberNavController
 import com.abrothers.medwallet.R
 import com.abrothers.medwallet.Screen
 import com.abrothers.medwallet.ui.theme.MedWalletTheme
-import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -88,7 +86,7 @@ fun LoginScreen(navController: NavController) {
                             modifier = Modifier.fillMaxWidth(),
                             value = username,
                             onValueChange = { username = it },
-                            label = { Text(text = stringResource(R.string.email)) },
+                            label = { Text(text = "Username") },
                             trailingIcon = {
                                 IconButton(onClick = { username = "" }) {
                                     if (username.isNotBlank()) {
@@ -111,13 +109,13 @@ fun LoginScreen(navController: NavController) {
                                 keyboardType = KeyboardType.Password,
                                 imeAction = ImeAction.Done
                             ),
-                            label = { Text(text = stringResource(R.string.password)) },
+                            label = { Text(text = "Password") },
                             visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
                             trailingIcon = {
                                 IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
                                     Icon(
                                         imageVector = if (isPasswordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff,
-                                        contentDescription = stringResource(R.string.password_toggle)
+                                        contentDescription = "Password toggle"
                                     )
                                 }
                             }
@@ -126,9 +124,7 @@ fun LoginScreen(navController: NavController) {
                         Spacer(modifier = Modifier.height(16.dp))
 
                         Button(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth()) {
-                            Text(
-                                text = stringResource(R.string.login).uppercase(Locale.getDefault())
-                            )
+                            Text(text = "LOGIN")
                         }
 
                         Spacer(modifier = Modifier.height(16.dp))
@@ -140,11 +136,11 @@ fun LoginScreen(navController: NavController) {
                             TextButton(onClick = {
                                 navController.navigate(Screen.CreateAccount.route)
                             }) {
-                                Text(text = stringResource(R.string.create_account))
+                                Text(text = "Create account")
                             }
 
                             TextButton(onClick = { /*TODO*/ }) {
-                                Text(text = stringResource(R.string.recover_password))
+                                Text(text = "Recover password")
                             }
                         }
                     }
@@ -159,7 +155,7 @@ fun LoginScreen(navController: NavController) {
 
 @Preview(showBackground = true)
 @Composable
-fun LoginScreenPreview() {
+fun HomeScreenPreview() {
     MedWalletTheme {
         LoginScreen(navController = rememberNavController())
     }
