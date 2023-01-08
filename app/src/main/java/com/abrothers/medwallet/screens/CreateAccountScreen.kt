@@ -1,5 +1,6 @@
 package com.abrothers.medwallet.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -10,6 +11,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -55,6 +58,16 @@ fun CreateAccountScreen(navController: NavController) {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+
+            // TODO: Change image in the future, this is just a placeholder
+            Image(
+                painter = painterResource(id = R.drawable.ic__793766328_main),
+                contentDescription = "App Logo",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .aspectRatio(1.5f)
+            )
+
             Card(
                 modifier = Modifier
                     .weight(2f)
@@ -112,7 +125,8 @@ fun CreateAccountScreen(navController: NavController) {
 
                         Row(
                             modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Start
                         ) {
                             Checkbox(
                                 checked = acceptTerms,
@@ -121,7 +135,7 @@ fun CreateAccountScreen(navController: NavController) {
                             Text(
                                 text = stringResource(R.string.terms_and_conditions),
                                 style = MaterialTheme.typography.bodyLarge,
-                                modifier = Modifier.padding(start = 16.dp)
+                                modifier = Modifier.padding(start = 8.dp)
                             )
                         }
 
