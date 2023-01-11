@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MedWallet</string>
+    <string name="create_account">Criar conta</string>
+    <string name="recover_password">Recuperar palavra-passe</string>
+    <string name="email">Email</string>
+    <string name="password">Palavra-passe</string>
+    <string name="terms_and_conditions">Eu concordo com os termos &amp; condições</string>
+    <string name="first_and_last_name">Primeiro e último nome</string>
+    <string name="login">Entrar</string>
+    <string name="password_toggle">Botão de alternar visibilidade da palavra-passe</string>
+</resources>
