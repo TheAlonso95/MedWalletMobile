@@ -25,6 +25,7 @@ fun HomeScreen(navController: NavController) {
     //NOTE: This is just for testing
     val account =
         Account("1", "Rafael", "https://img.freepik.com/free-icon/user_318-790139.jpg?w=2000")
+
     Box {
         val accountsListState = rememberLazyListState()
 
@@ -35,9 +36,7 @@ fun HomeScreen(navController: NavController) {
                 state = accountsListState,
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                items(10) {
-                    AccountComponent(account)
-                }
+                items(10) { AccountComponent(account) }
             }
         }
     }
