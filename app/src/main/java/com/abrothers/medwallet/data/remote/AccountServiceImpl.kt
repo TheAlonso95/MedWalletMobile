@@ -2,9 +2,10 @@ package com.abrothers.medwallet.data.remote
 
 import com.abrothers.medwallet.data.remote.dto.Account
 import com.abrothers.medwallet.data.remote.dto.SubAccount
+import io.ktor.client.*
 import io.ktor.client.plugins.*
 
-class AccountServiceImpl(/*private val client: HttpClient*/) : AccountService {
+class AccountServiceImpl(private val client: HttpClient) : AccountService {
 
     override suspend fun getUserInfo(): Account? {
         return try {
