@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
@@ -46,7 +47,10 @@ fun HomeScreen(
                 state = accountsListState,
                 horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                items(10) { AccountComponent(account.value) }
+                items(
+                    account.value.accounts,
+                    key = { it.subAccountId }
+                ) { AccountComponent(it) }
             }
         }
     }

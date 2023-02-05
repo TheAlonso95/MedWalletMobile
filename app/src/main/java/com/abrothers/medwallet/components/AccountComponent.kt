@@ -13,12 +13,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.abrothers.medwallet.R
-import com.abrothers.medwallet.data.remote.dto.Account
+import com.abrothers.medwallet.data.remote.dto.SubAccount
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AccountComponent(account: Account) {
+fun AccountComponent(account: SubAccount) {
     Card(
         elevation = CardDefaults.cardElevation(),
         onClick = { }
