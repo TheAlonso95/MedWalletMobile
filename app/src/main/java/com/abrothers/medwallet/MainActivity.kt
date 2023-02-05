@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.abrothers.medwallet.di.KoinModule
+import com.abrothers.medwallet.di.AppModule
 import com.abrothers.medwallet.ui.theme.MedWalletTheme
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
             // Logger for development
             androidLogger()
             //Add module dependencies
-            modules(KoinModule)
+            modules(AppModule)
 
             //Add app context
             androidContext(this@MainActivity)
