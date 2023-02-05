@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.abrothers.medwallet.R
-import com.abrothers.medwallet.models.Account
+import com.abrothers.medwallet.data.remote.dto.Account
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -33,7 +33,6 @@ fun AccountComponent(account: Account) {
                 contentDescription = stringResource(R.string.user_avatar_description),
                 modifier = Modifier.size(100.dp)
             )
-
             Text(text = account.name)
         }
     }
