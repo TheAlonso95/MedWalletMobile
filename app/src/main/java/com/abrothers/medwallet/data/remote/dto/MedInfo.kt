@@ -1,11 +1,10 @@
 package com.abrothers.medwallet.data.remote.dto
-
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class SubAccount(
+data class MedInfo(
+    val id: String = "",
     val name: String = "",
-    val subAccountId: Int = 0,
-    val imageUrl: String = "",
-    val listId: String = ""
+    val expirationDate: String = "",
+    val imageUrl: String? = "",
 )

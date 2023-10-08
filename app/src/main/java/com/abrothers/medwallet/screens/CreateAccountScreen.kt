@@ -22,6 +22,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.abrothers.medwallet.R
 import com.abrothers.medwallet.Screen
+import com.abrothers.medwallet.ui.theme.MedWalletTheme
 import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -151,5 +152,7 @@ fun CreateAccountScreen(navController: NavController) {
 @Preview(showBackground = true)
 @Composable
 fun CreateAccountScreenPreview() {
-    CreateAccountScreen(navController = rememberNavController())
+    MedWalletTheme {
+        CreateAccountScreen(navController = rememberNavController())
+    }
 }

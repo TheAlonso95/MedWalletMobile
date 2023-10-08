@@ -15,7 +15,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.abrothers.medwallet.R
 import com.abrothers.medwallet.data.remote.dto.SubAccount
 
-
+//TODO: Pass as parameter the function to return the account id clicked
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AccountComponent(account: SubAccount) {

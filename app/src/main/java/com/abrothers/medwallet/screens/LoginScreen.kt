@@ -125,7 +125,7 @@ fun LoginScreen(navController: NavController) {
 
                         Spacer(modifier = Modifier.height(16.dp))
 
-                        Button(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth()) {
+                        Button(onClick = { navController.navigate(Screen.Home.route) }, modifier = Modifier.fillMaxWidth()) {
                             Text(
                                 text = stringResource(R.string.login).uppercase(Locale.getDefault())
                             )

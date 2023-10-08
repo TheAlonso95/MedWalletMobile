@@ -1,6 +1,7 @@
 package com.abrothers.medwallet.data.remote
 
 import com.abrothers.medwallet.data.remote.dto.Account
+import com.abrothers.medwallet.data.remote.dto.MedInfo
 import io.ktor.client.*
 import io.ktor.client.engine.android.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -9,6 +10,7 @@ import io.ktor.serialization.kotlinx.json.*
 
 interface AccountService {
     suspend fun getUserInfo(): Account?
+    suspend fun getProfileMeds(profileId: String): List<MedInfo>?
 
     companion object {
         fun create(): AccountService {
